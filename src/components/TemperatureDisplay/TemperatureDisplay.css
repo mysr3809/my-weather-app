@@ -1,0 +1,14 @@
+.temperature-display {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+/* WeeklyForecast.css */
+.weekly-forecast {
+  display: flex;
+  justify-content: space-between;
+}
+
+.day-forecast {
+  text-align: center;
+}
