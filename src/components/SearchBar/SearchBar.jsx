@@ -19,6 +19,7 @@ const SearchBar = ({ onSearch }) => {
     code: "NL",
     flag: "https://flagcdn.com/w320/nl.png",
   });
+  const [city, setCity] = useState("");
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
@@ -26,8 +27,18 @@ const SearchBar = ({ onSearch }) => {
     setSelectedCountry(country);
   };
 
+  const handleSearchClick = () => {
+    onSearch(city, selectedCountry.code); // Pass the city and country code up to the parent component
+  };
+
+  // Call this function when the form is submitted
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevent the default form submit action
+    handleSearchClick();
+  };
+
   return (
-    <div className="search-bar">
+    <form onSubmit={handleSubmit} className="search-bar">
       <img className="cloudy-img" src={cloudyImg} alt="" />
       <Dropdown isOpen={dropdownOpen} toggle={toggle}>
         <DropdownToggle caret>
@@ -58,13 +69,19 @@ const SearchBar = ({ onSearch }) => {
         <input
           className="search-input"
           type="text"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
           placeholder="Enter city name..."
         />
-        <button type="button" className="search-button">
-          <FontAwesomeIcon icon={faSearch} className="search" />
+        <button
+          type="submit"
+          className="search-button"
+          onClick={handleSearchClick}
+        >
+          <FontAwesomeIcon icon={faSearch} />
         </button>
       </div>
-    </div>
+    </form>
   );
 };
 
