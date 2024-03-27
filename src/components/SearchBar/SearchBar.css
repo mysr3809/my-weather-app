@@ -13,6 +13,7 @@
 .input-container {
   position: relative;
   flex-grow: 1;
+  height: 100%;
 }
 
 .search-input {
@@ -78,6 +79,13 @@
 }
 
 .cloudy-img {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
+}
+
+@media screen and (max-width: 450px) {
+  .search-bar {
+    width: 95%;
+    padding: 10px;
+  }
 }
