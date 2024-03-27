@@ -3,7 +3,7 @@ import "./TemperatureDisplay.css";
 
 const TemperatureDisplay = ({ averageTemperature }) => {
   const currentDate = new Date();
-  const endDate = new Date(currentDate.getTime() + 7 * 24 * 60 * 60 * 1000); // 4 days in milliseconds
+  const endDate = new Date(currentDate.getTime() + 7 * 24 * 60 * 60 * 1000);
 
   const formatDate = (date) => {
     return date.toLocaleDateString("en-US", {
@@ -30,7 +30,7 @@ const TemperatureDisplay = ({ averageTemperature }) => {
 };
 
 TemperatureDisplay.propTypes = {
-  averageTemperature: PropTypes.string.isRequired,
+  averageTemperature: PropTypes.number.isRequired,
 };
 
 export default TemperatureDisplay;

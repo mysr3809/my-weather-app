@@ -28,12 +28,11 @@ const SearchBar = ({ onSearch }) => {
   };
 
   const handleSearchClick = () => {
-    onSearch(city, selectedCountry.code); // Pass the city and country code up to the parent component
+    onSearch(city, selectedCountry.code);
   };
 
-  // Call this function when the form is submitted
   const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent the default form submit action
+    event.preventDefault();
     handleSearchClick();
   };
 
