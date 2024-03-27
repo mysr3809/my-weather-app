@@ -14,6 +14,7 @@ const App = () => {
 
   const fetchWeatherData = async (city, countryCode) => {
     const cityList = City.getCitiesOfCountry(countryCode);
+    console.log(cityList);
     const capitalize = (city) =>
       (city && city[0].toUpperCase() + city.slice(1)) || "";
 

@@ -1,14 +1,33 @@
 .temperature-display {
-  font-size: 4rem;
-  margin-bottom: 20px;
-}
-
-/* WeeklyForecast.css */
-.weekly-forecast {
+  margin: 40px 0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #333;
 }
 
-.day-forecast {
-  text-align: center;
+.date {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.average-temperature {
+  font-size: 4.5rem;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  align-items: start;
+}
+
+.temperature-value {
+  line-height: 1;
+  color: white;
+}
+
+.degree-symbol {
+  font-size: 1rem;
+  margin: 5px;
+  color: white;
 }

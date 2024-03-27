@@ -1,0 +1,38 @@
+.weekly-forecast {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+.day-forecast {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.temperature {
+  color: white;
+}
+
+.weekly-forecast .temperature-value {
+  font-size: 1.3rem;
+}
+
+.weekly-forecast .degree-symbol {
+  font-size: 0.7rem;
+  margin: 0px;
+}
+
+@media screen and (max-width: 600px) {
+  .weekly-forecast {
+    justify-content: start;
+    width: 80%;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .day-forecast {
+    width: 30%;
+  }
+}

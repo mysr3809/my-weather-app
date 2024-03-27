@@ -1,15 +1,36 @@
 import PropTypes from "prop-types";
 import "./TemperatureDisplay.css";
+
 const TemperatureDisplay = ({ averageTemperature }) => {
+  const currentDate = new Date();
+  const endDate = new Date(currentDate.getTime() + 7 * 24 * 60 * 60 * 1000); // 4 days in milliseconds
+
+  const formatDate = (date) => {
+    return date.toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+    });
+  };
+
+  const dateString = `${formatDate(currentDate)} - ${formatDate(
+    endDate
+  )} ${currentDate.getFullYear()}`;
+
   return (
     <div className="temperature-display">
-      <div className="average-temperature">{averageTemperature}°C</div>
+      <span className="date">{dateString}</span>
+      <div className="average-temperature">
+        <span className="temperature-value">
+          {Math.round(averageTemperature)}
+        </span>
+        <span className="degree-symbol">°C</span>
+      </div>
     </div>
   );
 };
 
 TemperatureDisplay.propTypes = {
-  averageTemperature: PropTypes.number.isRequired,
+  averageTemperature: PropTypes.string.isRequired,
 };
 
 export default TemperatureDisplay;

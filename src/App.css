@@ -14,6 +14,8 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-width: 300px;
+
   background-image: linear-gradient(to right, #a1c4fd, #c2e9fb);
 }
 
@@ -22,8 +24,10 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 600px;
   width: 100%;
+  max-width: 600px;
+
+  overflow: scroll;
   margin: 0 auto;
   height: 100%;
 }
