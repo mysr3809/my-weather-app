@@ -10,6 +10,7 @@ import {
 import "./SearchBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import cloudyImg from "../../assets/cloudy.png";
 
 const SearchBar = ({ onSearch }) => {
   const countries = useCountries();
@@ -27,6 +28,7 @@ const SearchBar = ({ onSearch }) => {
 
   return (
     <div className="search-bar">
+      <img className="cloudy-img" src={cloudyImg} alt="" />
       <Dropdown isOpen={dropdownOpen} toggle={toggle}>
         <DropdownToggle caret>
           <img

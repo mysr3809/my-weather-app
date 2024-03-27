@@ -12,10 +12,12 @@ const App = () => {
   };
 
   return (
-    <div className="App container">
-      <SearchBar onSearch={handleSearch} />
-      <TemperatureDisplay averageTemperature={averageTemperature} />
-      <WeeklyForecast dailyForecasts={dailyForecasts} />
+    <div className="App">
+      <div className="app-container">
+        <SearchBar onSearch={handleSearch} />
+        {/* <TemperatureDisplay averageTemperature={averageTemperature} />
+      <WeeklyForecast dailyForecasts={dailyForecasts} /> */}
+      </div>
     </div>
   );
 };

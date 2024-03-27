@@ -1,18 +1,29 @@
 body,
 html {
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
   margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.container {
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(to right, #a1c4fd, #c2e9fb);
+}
+
+.app-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   max-width: 600px;
+  width: 100%;
   margin: 0 auto;
   height: 100%;
 }

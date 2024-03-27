@@ -1,4 +1,4 @@
 :root {
-  --input-hover-border-color: rgba(94, 143, 222, 0.8);
+  --input-hover-border-color: rgba(94, 143, 222, 0.5);
   --input-focus-border-color: rgba(94, 143, 222, 1);
 }
