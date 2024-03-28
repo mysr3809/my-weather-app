@@ -4,7 +4,7 @@ import TemperatureDisplay from "./components/TemperatureDisplay/TemperatureDispl
 import WeeklyForecast from "./components/WeeklyForecast/WeeklyForecast";
 import "./App.css";
 import { QueryClient, QueryClientProvider } from "react-query";
-
+import setGradient from "./utils/setGradient";
 const App = () => {
   const queryClient = new QueryClient();
 
@@ -15,7 +15,7 @@ const App = () => {
 
   const fetchWeatherData = async (city, countryCode) => {
     try {
-      const apiKey = "";
+      const apiKey = "8df9669ef0604996b6939d497c1862a9";
       const url = `https://api.weatherbit.io/v2.0/forecast/daily?&city=${city}&key=${apiKey}`;
       const response = await fetch(url);
       const data = await response.json();
@@ -46,31 +46,7 @@ const App = () => {
     }
   };
 
-  const getGradientColors = (temperature) => {
-    let startColor = "#a1c4fd";
-    let endColor;
-
-    if (temperature <= -30) {
-      endColor = "#173070";
-    } else if (temperature <= -20) {
-      endColor = "#347cbb";
-    } else if (temperature <= -10) {
-      endColor = "#3a8bc6";
-    } else if (temperature <= 0) {
-      endColor = "#7ab3d3";
-    } else if (temperature <= 10) {
-      endColor = "#87b5c5";
-    } else if (temperature <= 20) {
-      endColor = "#b2b487";
-    } else if (temperature <= 30) {
-      endColor = "#cc9e62";
-    } else if (temperature <= 40) {
-      endColor = "##ca7e48";
-    }
-    return `linear-gradient(to bottom right, ${startColor}, ${endColor})`;
-  };
-
-  const dynamicGradient = getGradientColors(
+  const dynamicGradient = setGradient(
     parseFloat(weatherData.averageTemperature)
   );
 
