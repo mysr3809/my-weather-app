@@ -29,13 +29,9 @@ const SearchBar = ({ onSearch }) => {
     setSelectedCountry(country);
   };
 
-  const handleSearchClick = () => {
-    onSearch(city, selectedCountry.code);
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleSearchClick();
+    onSearch(city, selectedCountry.code);
   };
 
   return (
@@ -74,11 +70,7 @@ const SearchBar = ({ onSearch }) => {
           onChange={(e) => setCity(e.target.value)}
           placeholder="Enter city name..."
         />
-        <button
-          type="submit"
-          className="search-button"
-          onClick={handleSearchClick}
-        >
+        <button type="submit" className="search-button">
           <FontAwesomeIcon icon={faSearch} />
         </button>
       </div>

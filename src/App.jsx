@@ -33,8 +33,6 @@ const App = () => {
     Math.round(weatherData.averageTemperature)
   );
 
-  console.log(Math.round(parseFloat(weatherData.averageTemperature)));
-
   const handleSearch = (city, countryCode) => {
     setSelectedCity(city);
     setSelectedCountryCode(countryCode);

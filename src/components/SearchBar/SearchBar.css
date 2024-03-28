@@ -65,7 +65,7 @@
   border: 1px solid var(--input-hover-border-color) !important;
 }
 .dropdown-toggle.btn-secondary:focus {
-  background-color: #f8f9fa !important;
+  background-color: white !important;
   color: black !important;
   border: 1px solid var(--input-hover-border-color) !important;
 }
@@ -75,7 +75,7 @@
 }
 
 .dropdown-menu.show {
-  height: 200px !important;
+  height: 250px !important;
   overflow: scroll;
 }
 

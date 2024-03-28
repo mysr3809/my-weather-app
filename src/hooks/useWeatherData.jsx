@@ -9,9 +9,10 @@ const fetchWeatherData = async ({ queryKey }) => {
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
+
   const data = await response.json();
   if (data.country_code !== countryCode) {
-    throw new Error("There is no city with that name or country");
+    throw new Error("Check the country or city name.");
   }
   return data;
 };
@@ -20,5 +21,6 @@ export const useWeatherData = (city, countryCode) => {
   return useQuery(["weatherData", { city, countryCode }], fetchWeatherData, {
     enabled: !!city && !!countryCode,
     staleTime: 1000 * 60 * 5, // 5 minutes
+    retry: false,
   });
 };
