@@ -13,13 +13,15 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import cloudyImg from "../../assets/cloudy.png";
 
 const SearchBar = ({ onSearch }) => {
-  const countries = useCountries();
+  const { data: countries, error, isLoading } = useCountries();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState({
     code: "NL",
     flag: "https://flagcdn.com/w320/nl.png",
   });
   const [city, setCity] = useState("");
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>An error occurred: {error.message}</div>;
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
