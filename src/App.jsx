@@ -42,7 +42,7 @@ const App = () => {
     <div className="App" style={{ background: dynamicGradient }}>
       <div className="app-container">
         <SearchBar onSearch={handleSearch} />
-        {isLoading && <div>Loading...</div>}
+        {isLoading && <div className="loader"></div>}
         {error && <div>Error: {error.message}</div>}
         {weatherData.averageTemperature && (
           <TemperatureDisplay

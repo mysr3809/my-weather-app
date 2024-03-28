@@ -20,7 +20,7 @@ const SearchBar = ({ onSearch }) => {
     flag: "https://flagcdn.com/w320/nl.png",
   });
   const [city, setCity] = useState("");
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <div className="loader"></div>;
   if (error) return <div>An error occurred: {error.message}</div>;
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
