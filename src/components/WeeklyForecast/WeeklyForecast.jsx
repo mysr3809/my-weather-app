@@ -6,7 +6,7 @@ const WeeklyForecast = ({ dailyForecasts }) => {
     <div className="weekly-forecast">
       {dailyForecasts.map((forecast) => (
         <div key={forecast.day} className="day-forecast">
-          <div className="day">{forecast.day}</div>
+          <div className="day">{forecast.day.toUpperCase()}</div>
           <div className="average-temperature">
             <div className="temperature-value">
               {Math.round(forecast.temperature)}

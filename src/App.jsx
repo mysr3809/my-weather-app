@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchBar from "./components/SearchBar/SearchBar";
 import TemperatureDisplay from "./components/TemperatureDisplay/TemperatureDisplay";
 import WeeklyForecast from "./components/WeeklyForecast/WeeklyForecast";
 import { useWeatherData } from "./hooks/useWeatherData";
 import setGradient from "./utils/setGradient";
 import "./App.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const [selectedCity, setSelectedCity] = useState(null);
@@ -14,6 +16,19 @@ const App = () => {
     selectedCity,
     selectedCountryCode
   );
+
+  useEffect(() => {
+    if (error) {
+      toast.error(`Error: Check the country or city name.`, {
+        position: "top-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    }
+  }, [error]);
 
   // Extract the weather data or set defaults if data is loading or an error occurred
   const weatherData = data
@@ -40,10 +55,10 @@ const App = () => {
 
   return (
     <div className="App" style={{ background: dynamicGradient }}>
+      <ToastContainer />
       <div className="app-container">
         <SearchBar onSearch={handleSearch} />
         {isLoading && <div className="loader"></div>}
-        {error && <div>Error: {error.message}</div>}
         {weatherData.averageTemperature && (
           <TemperatureDisplay
             averageTemperature={weatherData.averageTemperature}

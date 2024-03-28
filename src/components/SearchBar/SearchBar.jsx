@@ -14,6 +14,7 @@ import cloudyImg from "../../assets/cloudy.png";
 
 const SearchBar = ({ onSearch }) => {
   const { data: countries, error, isLoading } = useCountries();
+
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState({
     code: "NL",
@@ -21,12 +22,19 @@ const SearchBar = ({ onSearch }) => {
   });
   const [city, setCity] = useState("");
   if (isLoading) return <div className="loader"></div>;
-  if (error) return <div>An error occurred: {error.message}</div>;
+  if (error)
+    return (
+      <div className="country-error">
+        An error occurred: {error.message} for the countries
+      </div>
+    );
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
   const handleCountrySelect = (country) => {
     setSelectedCountry(country);
+    setCity("");
+    onSearch("", country.code);
   };
 
   const handleSubmit = (event) => {

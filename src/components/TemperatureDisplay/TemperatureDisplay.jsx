@@ -3,7 +3,8 @@ import "./TemperatureDisplay.css";
 
 const TemperatureDisplay = ({ averageTemperature }) => {
   const currentDate = new Date();
-  const endDate = new Date(currentDate.getTime() + 7 * 24 * 60 * 60 * 1000);
+  const tenDays = 10 * 24 * 60 * 60 * 1000;
+  const endDate = new Date(currentDate.getTime() + tenDays);
 
   const formatDate = (date) => {
     return date.toLocaleDateString("en-US", {
@@ -18,7 +19,7 @@ const TemperatureDisplay = ({ averageTemperature }) => {
 
   return (
     <div className="temperature-display">
-      <span className="date">{dateString}</span>
+      <span className="date">{dateString.toUpperCase()}</span>
       <div className="average-temperature">
         <span className="temperature-value">
           {Math.round(averageTemperature)}

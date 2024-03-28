@@ -12,6 +12,10 @@
   flex-direction: column;
 }
 
+.day {
+  font-size: 0.8rem;
+}
+
 .temperature {
   color: white;
 }
