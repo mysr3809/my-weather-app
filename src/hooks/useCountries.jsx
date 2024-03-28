@@ -16,7 +16,10 @@ const fetchCountries = async () => {
 };
 
 const useCountries = () => {
-  return useQuery({ queryKey: "countries", queryFn: fetchCountries });
+  return useQuery(
+    { queryKey: "countries", queryFn: fetchCountries },
+    { staleTime: 1000 * 60 * 5 } // 5 minutes
+  );
 };
 
 export default useCountries;
