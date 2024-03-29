@@ -1,26 +1,20 @@
+const gradientColors = [
+  { threshold: -30, color: "#173070" },
+  { threshold: -20, color: "#347cbb" },
+  { threshold: -10, color: "#3a8bc6" },
+  { threshold: 0, color: "#7ab3d3" },
+  { threshold: 10, color: "#87b5c5" },
+  { threshold: 20, color: "#b2b487" },
+  { threshold: 30, color: "#cc9e62" },
+  { threshold: 40, color: "#ca7e48" },
+];
+
 const getGradientColors = (temperature) => {
   let startColor = "#a1c4fd";
-  let endColor;
+  let endColor =
+    gradientColors.find((color) => temperature <= color.threshold)?.color ||
+    "#7ab3d3";
 
-  if (temperature <= -30) {
-    endColor = "#173070";
-  } else if (temperature <= -20) {
-    endColor = "#347cbb";
-  } else if (temperature <= -10) {
-    endColor = "#3a8bc6";
-  } else if (temperature <= 0) {
-    endColor = "#7ab3d3";
-  } else if (temperature <= 10) {
-    endColor = "#87b5c5";
-  } else if (temperature <= 20) {
-    endColor = "#b2b487";
-  } else if (temperature <= 30) {
-    endColor = "#cc9e62";
-  } else if (temperature <= 40) {
-    endColor = "##ca7e48";
-  } else {
-    endColor = "#7ab3d3";
-  }
   return `linear-gradient(to bottom right, ${startColor}, ${endColor})`;
 };
 
