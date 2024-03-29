@@ -1,10 +1,9 @@
 import { useQuery } from "react-query";
+import { WEATHER_API_KEY } from "../../config";
 
 const fetchWeatherData = async ({ queryKey }) => {
   const [, { city, countryCode }] = queryKey;
-  const url = `https://api.weatherbit.io/v2.0/forecast/daily?&city=${city}&key=${
-    import.meta.env.VITE_WEATHER_API_KEY
-  }`;
+  const url = `https://api.weatherbit.io/v2.0/forecast/daily?&city=${city}&key=${WEATHER_API_KEY}`;
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error("Network response was not ok");

@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+import React from "react";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import useCountries from "../../hooks/useCountries";
@@ -21,7 +23,7 @@ const SearchBar = ({ onSearch }) => {
     flag: "https://flagcdn.com/w320/nl.png",
   });
   const [city, setCity] = useState("");
-  if (isLoading) return <div className="loader"></div>;
+  if (isLoading) return <div className="loader" data-testid="loader"></div>;
   if (error)
     return (
       <div className="country-error">
@@ -78,7 +80,11 @@ const SearchBar = ({ onSearch }) => {
           onChange={(e) => setCity(e.target.value)}
           placeholder="Enter city name..."
         />
-        <button type="submit" className="search-button">
+        <button
+          type="submit"
+          className="search-button"
+          data-testid="search-button"
+        >
           <FontAwesomeIcon icon={faSearch} />
         </button>
       </div>

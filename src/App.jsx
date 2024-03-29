@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from "react";
 import SearchBar from "./components/SearchBar/SearchBar";
 import TemperatureDisplay from "./components/TemperatureDisplay/TemperatureDisplay";
 import WeeklyForecast from "./components/WeeklyForecast/WeeklyForecast";
@@ -58,7 +59,7 @@ const App = () => {
       <ToastContainer />
       <div className="app-container">
         <SearchBar onSearch={handleSearch} />
-        {isLoading && <div className="loader"></div>}
+        {isLoading && <div className="loader" data-testid="app-loader"></div>}
         {weatherData.averageTemperature && (
           <TemperatureDisplay
             averageTemperature={weatherData.averageTemperature}
