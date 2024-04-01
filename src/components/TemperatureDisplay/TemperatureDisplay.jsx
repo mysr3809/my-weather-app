@@ -20,7 +20,11 @@ const TemperatureDisplay = ({ averageTemperature }) => {
   )} ${currentDate.getFullYear()}`;
 
   return (
-    <div className="temperature-display">
+    <div
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      className="temperature-display"
+    >
       <span className="date">{dateString.toUpperCase()}</span>
       <div className="average-temperature">
         <span className="temperature-value">

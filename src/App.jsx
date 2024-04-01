@@ -8,6 +8,10 @@ import setGradient from "./utils/setGradient";
 import "./App.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+AOS.init();
 
 const App = () => {
   const [selectedCity, setSelectedCity] = useState(null);
@@ -58,7 +62,13 @@ const App = () => {
   };
 
   return (
-    <div className="App" style={{ background: dynamicGradient }}>
+    <div
+      className="App"
+      style={{
+        background: dynamicGradient,
+        transition: "background 0.5s ease-in-out",
+      }}
+    >
       <ToastContainer />
       <div className="app-container">
         <SearchBar onSearch={handleSearch} />

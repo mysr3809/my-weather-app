@@ -17,8 +17,8 @@ import cloudyImg from "../../assets/cloudy.png";
 const SearchBar = ({ onSearch }) => {
   const { data: countries, error, isLoading } = useCountries(); //fetch countries from API
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  // default country to Netherlands
   const [selectedCountry, setSelectedCountry] = useState({
-    // default country to Netherlands
     code: "NL",
     flag: "https://flagcdn.com/w320/nl.png",
   });
@@ -46,7 +46,12 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="search-bar">
+    <form
+      data-aos="fade-up"
+      data-aos-duration="700"
+      onSubmit={handleSubmit}
+      className="search-bar"
+    >
       <img className="cloudy-img" src={cloudyImg} alt="" />
       <Dropdown isOpen={dropdownOpen} toggle={toggle}>
         <DropdownToggle caret>

@@ -3,7 +3,11 @@ import PropTypes from "prop-types";
 
 const WeeklyForecast = ({ dailyForecasts }) => {
   return (
-    <div className="weekly-forecast">
+    <div
+      data-aos="fade-up"
+      data-aos-duration="1500"
+      className="weekly-forecast"
+    >
       {dailyForecasts.map((forecast) => (
         <div key={forecast.day} className="day-forecast">
           <div className="day">{forecast.day.toUpperCase()}</div>
