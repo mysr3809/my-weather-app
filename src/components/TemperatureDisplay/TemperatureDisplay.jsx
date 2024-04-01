@@ -6,7 +6,7 @@ import "./TemperatureDisplay.css";
 const TemperatureDisplay = ({ averageTemperature }) => {
   const currentDate = new Date();
   const tenDays = 10 * 24 * 60 * 60 * 1000;
-  const endDate = new Date(currentDate.getTime() + tenDays);
+  const endDate = new Date(currentDate.getTime() + tenDays); // Add 10 days to the current date
 
   const formatDate = (date) => {
     return date.toLocaleDateString("en-US", {

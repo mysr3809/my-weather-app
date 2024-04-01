@@ -13,11 +13,13 @@ const App = () => {
   const [selectedCity, setSelectedCity] = useState(null);
   const [selectedCountryCode, setSelectedCountryCode] = useState(null);
 
+  // Fetch weather data for the selected city
   const { data, error, isLoading } = useWeatherData(
     selectedCity,
     selectedCountryCode
   );
 
+  // Display error message if an error occurred
   useEffect(() => {
     if (error) {
       toast.error(`Error: Check the country or city name.`, {
@@ -45,6 +47,7 @@ const App = () => {
       }
     : { averageTemperature: null, dailyForecasts: [] };
 
+  // Set gradient based on temperature
   const dynamicGradient = setGradient(
     Math.round(weatherData.averageTemperature)
   );

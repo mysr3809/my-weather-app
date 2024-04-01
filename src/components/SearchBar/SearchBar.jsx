@@ -15,15 +15,15 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import cloudyImg from "../../assets/cloudy.png";
 
 const SearchBar = ({ onSearch }) => {
-  const { data: countries, error, isLoading } = useCountries();
-
+  const { data: countries, error, isLoading } = useCountries(); //fetch countries from API
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState({
+    // default country to Netherlands
     code: "NL",
     flag: "https://flagcdn.com/w320/nl.png",
   });
   const [city, setCity] = useState("");
-  if (isLoading) return <div className="loader" data-testid="loader"></div>;
+  if (isLoading) return <div className="loader" data-testid="loader"></div>; //show loader spinner
   if (error)
     return (
       <div className="country-error">
@@ -31,7 +31,7 @@ const SearchBar = ({ onSearch }) => {
       </div>
     );
 
-  const toggle = () => setDropdownOpen((prevState) => !prevState);
+  const toggle = () => setDropdownOpen((prevState) => !prevState); // toggle dropdown
 
   const handleCountrySelect = (country) => {
     setSelectedCountry(country);
@@ -40,6 +40,7 @@ const SearchBar = ({ onSearch }) => {
   };
 
   const handleSubmit = (event) => {
+    // handle form submit search by city
     event.preventDefault();
     onSearch(city, selectedCountry.code);
   };
