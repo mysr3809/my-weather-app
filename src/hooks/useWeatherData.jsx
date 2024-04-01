@@ -4,6 +4,7 @@ import { WEATHER_API_KEY } from "../../config";
 const fetchWeatherData = async ({ queryKey }) => {
   const [, { city, countryCode }] = queryKey;
   const url = `https://api.weatherbit.io/v2.0/forecast/daily?&city=${city}&key=${WEATHER_API_KEY}`;
+
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -16,7 +17,8 @@ const fetchWeatherData = async ({ queryKey }) => {
     }
     return data;
   } catch (error) {
-    console.error(error);
+    console.error("Failed to fetch weather data:", error.message);
+    throw error;
   }
 };
 

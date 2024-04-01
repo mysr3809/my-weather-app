@@ -16,6 +16,7 @@ const fetchCountries = async () => {
       .sort((a, b) => a.code.localeCompare(b.code)); // sort by country code
   } catch (error) {
     console.error(error);
+    throw error;
   }
 };
 
