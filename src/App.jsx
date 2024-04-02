@@ -16,6 +16,9 @@ AOS.init();
 const App = () => {
   const [selectedCity, setSelectedCity] = useState(null);
   const [selectedCountryCode, setSelectedCountryCode] = useState(null);
+  const [background, setBackground] = useState(
+    "linear-gradient(to bottom right, #87b5c55e, #87b5c55e)"
+  );
 
   // Fetch weather data for the selected city
   const { data, error, isLoading } = useWeatherData(
@@ -36,6 +39,15 @@ const App = () => {
       });
     }
   }, [error]);
+
+  // Update the background only when new weather data is fetched
+  useEffect(() => {
+    if (data) {
+      const averageTemperature =
+        data.data.slice(0, 10).reduce((acc, cur) => acc + cur.temp, 0) / 10;
+      setBackground(setGradient(Math.round(averageTemperature)));
+    }
+  }, [data]);
 
   // Extract the weather data or set defaults if data is loading or an error occurred
   const weatherData = data
@@ -65,7 +77,7 @@ const App = () => {
     <div
       className="App"
       style={{
-        background: dynamicGradient,
+        background: background,
         transition: "background 0.5s ease-in-out",
       }}
     >
