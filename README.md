@@ -6,6 +6,7 @@ The Weather Forecast App is a modern web application designed to provide real-ti
 
 ## Code Structure
 
+```
 src
 │ ├── App.css
 │ ├── App.jsx
@@ -34,6 +35,7 @@ src
 │ └── utils
 │ ├── getGradientColors.test.js
 │ └── setGradient.jsx
+```
 
 ## Features
 

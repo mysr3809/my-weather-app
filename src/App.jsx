@@ -16,9 +16,10 @@ AOS.init();
 const App = () => {
   const [selectedCity, setSelectedCity] = useState(null);
   const [selectedCountryCode, setSelectedCountryCode] = useState(null);
-  const [background, setBackground] = useState(
-    "linear-gradient(to bottom right, #87b5c55e, #87b5c55e)"
-  );
+  const defaultGradient =
+    "linear-gradient(to bottom right, #87b5c55e, #87b5c55e)";
+
+  const [background, setBackground] = useState(defaultGradient);
 
   // Fetch weather data for the selected city
   const { data, error, isLoading } = useWeatherData(
@@ -71,6 +72,7 @@ const App = () => {
   const handleSearch = (city, countryCode) => {
     setSelectedCity(city);
     setSelectedCountryCode(countryCode);
+    if (!city) setBackground(defaultGradient);
   };
 
   return (

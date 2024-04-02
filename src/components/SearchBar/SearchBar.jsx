@@ -47,7 +47,7 @@ const SearchBar = ({ onSearch }) => {
 
   return (
     <form
-      data-aos="fade-up"
+      data-aos="zoom-in"
       data-aos-duration="700"
       onSubmit={handleSubmit}
       className="search-bar"
